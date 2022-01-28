@@ -1,0 +1,32 @@
+.outer-container {
+  height: 100vh;
+  width: 100vw;
+  /* background-color: darkcyan; */
+}
+
+.login-container {
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+.login {
+  color: black;
+}
+.user-pass {
+  font-size: 16px;
+}
+.login-div {
+  background-image: linear-gradient(
+    to right,
+    #ffce00 50%,
+    #ffce00 50%,
+    #fe4880
+  );
+  display: flex;
+  align-items: center;
+
+  padding: 7px;
+  border-radius: 7px;
+}
