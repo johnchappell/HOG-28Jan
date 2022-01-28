@@ -41,12 +41,13 @@ function Add(props) {
     if (props.currentProfile) {
       result = props.client.updateProfile(
         props.currentProfile._id,
+        e.target.username.value,
         e.target.firstName.value,
         e.target.lastName.value,
         e.target.bio.value
       );
     } else {
-      result = props.client.addProfile( e.target.firstName.value, e.target.lastName.value, e.target.bio.value);
+      result = props.client.addProfile( e.target.username.value, e.target.firstName.value, e.target.lastName.value, e.target.bio.value);
     }
     result
       .then(() => {
@@ -71,6 +72,18 @@ function Add(props) {
 
       <form onSubmit={(e) => submitHandler(e)} id="addForm">
       <br />
+      <div className="add-group">
+          <label htmlFor="usernameame">Username:</label>
+        
+        <input
+          type="text"
+          defaultValue={props.currentProfile?.username}
+          name="username"
+          id="username"
+          disabled={disabled}
+        />
+        </div>
+        <br />
                 <div className="add-group">
           <label htmlFor="firstName">First Name:</label>
         

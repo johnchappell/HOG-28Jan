@@ -63,6 +63,7 @@ function Dashboard(props) {
     return profiles.map((current) => {
       return (
         <tr key={current._id}>
+          <td>{current.username}</td> 
           <td>{current.firstName}</td> 
           <td>{current.lastName}</td>
           <td>{current.bio}</td>
@@ -86,6 +87,7 @@ function Dashboard(props) {
       <table>
         <thead className="table-head">
           <tr>
+          <th>Username</th>
            <th>First Name</th>
             <th>Last Name</th>
             <th>Bio</th>

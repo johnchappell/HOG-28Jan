@@ -61,16 +61,16 @@ export class ApiClient {
     return this.authenticatedCall("get", url);
   }
 
-  addProfile(firstName, lastName, bio) {
+  addProfile(username, firstName, lastName, bio) {
     console.log("Posting", firstName)
-    return this.authenticatedCall("post", url, { firstName, lastName, bio });
+    return this.authenticatedCall("post", url, { username, firstName, lastName, bio });
   }
 
   removeProfile(id) {
     return this.authenticatedCall("delete", `${url}${id}`);
   }
 
-  updateProfile(id, firstName, lastName, bio) {
-    return this.authenticatedCall("put", `${url}${id}`, { firstName, lastName, bio });
+  updateProfile(id, username, firstName, lastName, bio) {
+    return this.authenticatedCall("put", `${url}${id}`, { username, firstName, lastName, bio });
   }
 }
