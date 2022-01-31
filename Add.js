@@ -42,22 +42,35 @@ function Add(props) {
       result = props.client.updateProfile(
         props.currentProfile._id,
         e.target.username.value,
+        e.target.userType.value,
         e.target.firstName.value,
         e.target.lastName.value,
         e.target.bio.value,
         e.target.email.value,
         e.target.image.value,
-        e.target.cv.value
+        e.target.cv.value,
+        e.target.isEmployed.value,
+        e.target.employedInTech.value,
+        e.target.employedOther.value,
+        e.target.freelance.value,
+        e.target.notEmployed.value,
+        e.target.inEducation.value
       );
     } else {
       result = props.client.addProfile( 
         e.target.username.value,
+        e.target.userType.value,
         e.target.firstName.value, 
         e.target.lastName.value, 
         e.target.bio.value,
         e.target.email.value,
         e.target.image.value,
-        e.target.cv.value
+        e.target.isEmployed.value,
+        e.target.employedInTech.value,
+        e.target.employedOther.value,
+        e.target.freelance.value,
+        e.target.notEmployed.value,
+        e.target.inEducation.value
         );
     }
     result
@@ -94,6 +107,20 @@ function Add(props) {
           disabled={disabled}
         />
         </div>
+
+        <br />
+        <div className="add-group">
+          <label htmlFor="userType">User Type:</label>
+        
+        <input
+          type="text"
+          defaultValue={props.currentProfile?.userType}
+          name="userType"
+          id="userType"
+          disabled={disabled}
+        />
+        </div>
+
       <br />
         <div className="add-group">
           <label htmlFor="firstName">First Name:</label>
@@ -169,6 +196,97 @@ function Add(props) {
   type="text"
   defaultValue={props.currentProfile?.cv}
   name="cv" id="cv"
+  disabled={disabled}
+/>
+</div>
+
+<br />
+
+<div className="add-group">
+  <label htmlFor="location">Location:</label>
+
+<input
+  type="text"
+  defaultValue={props.currentProfile?.location}
+  name="location" id="location"
+  disabled={disabled}
+/>
+</div>
+
+<br />
+
+<div className="add-group">
+  <label htmlFor="isEmployed">Employed:</label>
+
+<input
+  type="text"
+  defaultValue={props.currentProfile?.isEmployed}
+  name="isEmployed" id="isEmployed"
+  disabled={disabled}
+/>
+</div>
+
+<br />
+
+<div className="add-group">
+  <label htmlFor="employedInTech">Employed in what tech role:</label>
+
+<input
+  type="text"
+  defaultValue={props.currentProfile?.employedInTech}
+  name="employedInTech" id="employedInTech"
+  disabled={disabled}
+/>
+</div>
+
+<br />
+
+<div className="add-group">
+  <label htmlFor="employedOther">Employed in another role:</label>
+
+<input
+  type="text"
+  defaultValue={props.currentProfile?.employedOther}
+  name="employedOther" id="employedOther"
+  disabled={disabled}
+/>
+</div>
+
+<br />
+
+<div className="add-group">
+  <label htmlFor="freelance">Freelance:</label>
+
+<input
+  type="text"
+  defaultValue={props.currentProfile?.freelance}
+  name="freelance" id="freelance"
+  disabled={disabled}
+/>
+</div>
+
+<br />
+
+<div className="add-group">
+  <label htmlFor="notEmployed">Not employed:</label>
+
+<input
+  type="text"
+  defaultValue={props.currentProfile?.notEmployed}
+  name="notEmployed" id="notEmployed"
+  disabled={disabled}
+/>
+</div>
+
+<br />
+
+<div className="add-group">
+  <label htmlFor="inEducation">In education or training:</label>
+
+<input
+  type="text"
+  defaultValue={props.currentProfile?.inEducation}
+  name="inEducation" id="inEducation"
   disabled={disabled}
 />
 </div>
