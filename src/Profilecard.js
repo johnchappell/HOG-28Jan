@@ -18,10 +18,13 @@ console.log(Profilecard)
             <Card id="main"className="Card "  style={{ width: '14rem'}} >
                 <Card.Body >
                 <Card.Img  className="mh-10 mw-10 cardImg hover-shadow"  src={props.picture} alt="" />
+                <Button variant="danger" size="sm" 
+                >Shortlist profile</Button>
                     <Card.Text><h3> {props.firstName} {props.lastName}</h3></Card.Text>
-                    <Card.Text>{props.bio}</Card.Text>
+                    <Card.Text>{props.userType}</Card.Text>
                     <Card.Text>{props.email}</Card.Text>
                     <Card.Text>{props.location}</Card.Text>
+                    
 
 
                     <Card.Link href={"mailto:"+props.email}> <FontAwesomeIcon icon = {faEnvelope}></FontAwesomeIcon></Card.Link>
