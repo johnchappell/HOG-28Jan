@@ -13,6 +13,8 @@ import { Container } from "react-bootstrap";
 //mport Table from 'react-bootstrap/Table';
 function TestDashboard(props) {
   const [profiles, cProfiles] = useState([]);
+  console.log(window.localStorage.userType, window.localStorage.token, window.localStorage.username);
+  // filter out by employer, participant and isEmployed
   const employerProfiles = profiles.filter((profile) => profile.userType == 'employer');
   const participantProfiles = profiles.filter((profile) => profile.userType == 'participant');
   const employedProfiles = profiles.filter((profile) => profile.isEmployed == true);
@@ -120,22 +122,22 @@ function TestDashboard(props) {
       </div>
 
         <br />
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div className="row row-cols-1 row-cols-md-3 g-4">
             <h2>Showing 'employer' cards</h2>
           {buildEmployercards()}
         </div>
         <br />
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div className="row row-cols-1 row-cols-md-3 g-4">
           <h2>Showing 'participant' cards</h2>
           {buildParticipantcards()}
         </div>
         <br />
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div className="row row-cols-1 row-cols-md-3 g-4">
           <h2>Showing all cards</h2>
           {buildProfilecards()}
         </div>
         <br />
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div className="row row-cols-1 row-cols-md-3 g-4">
           <h2>Showing employed profile cards</h2>
           {buildEmployedcards()}
         </div>
@@ -152,9 +154,9 @@ function TestDashboard(props) {
         currentProfile={current}
         logout={props.logout}
       /> 
-      <a class="see-less-btn" onClick={() => setShow(!show)}>See less</a>
+      <a className="see-less-btn" onClick={() => setShow(!show)}>See less</a>
       </>
-      : <a class="buttonShowAdd2" onClick={() => setShow(!show)}>Add post</a> }
+      : <a className="buttonShowAdd2" onClick={() => setShow(!show)}>Add post</a> }
       </Col>
       <Col xs={6}>
         { show2? 
@@ -164,9 +166,9 @@ function TestDashboard(props) {
             querySearch = {querySearch}
             currentProfile={current}
           /> */}
-          <a class="see-less-btn" onClick={() => setShow2(!show2)}>See less</a>
+          <a className="see-less-btn" onClick={() => setShow2(!show2)}>See less</a>
           </>
-        :<a class="buttonShowAdd2" onClick={() => setShow2(!show2)}>Find Participant</a> }
+        :<a className="buttonShowAdd2" onClick={() => setShow2(!show2)}>Find Participant</a> }
         </Col>
         </Row>
         </Container>
