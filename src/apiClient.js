@@ -2,10 +2,13 @@ import axios from "axios";
 const url = "http://localhost:3001/";
 
 export class ApiClient {
-  constructor(tokenProvider, newUserType, logoutHandler){
+  // username added 2 Feb
+  constructor(tokenProvider, newUserType, newUsername, logoutHandler){
     this.tokenProvider = tokenProvider;
     this.logoutHandler = logoutHandler;
     this.userType = newUserType;
+    // added 2 feb
+    this.username = newUsername;
   }
 
 
@@ -62,7 +65,7 @@ export class ApiClient {
   }
 
   addProfile(username, userType, firstName, lastName, bio, email, image, cv, location, isEmployed, employedInTech, employedOther, freelance, notEmployed, inEducation, saveForlater, portfolioLink) {
-    console.log("Posting", firstName)
+   // console.log("Posting", firstName)
     return this.authenticatedCall("post", url, { username, userType,  firstName, lastName, bio, email, image, cv, location, isEmployed, employedInTech, employedOther, freelance, notEmployed, inEducation, saveForlater, portfolioLink });
   }
 

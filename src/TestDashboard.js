@@ -13,11 +13,20 @@ import { Container } from "react-bootstrap";
 //mport Table from 'react-bootstrap/Table';
 function TestDashboard(props) {
   const [profiles, cProfiles] = useState([]);
-  console.log(window.localStorage.userType, window.localStorage.token, window.localStorage.username);
+  //console.log(window.localStorage.userType, window.localStorage.token, window.localStorage.username);
   // filter out by employer, participant and isEmployed
   const employerProfiles = profiles.filter((profile) => profile.userType == 'employer');
   const participantProfiles = profiles.filter((profile) => profile.userType == 'participant');
   const employedProfiles = profiles.filter((profile) => profile.isEmployed == true);
+
+  // I want to display current logged in user so they can edit their profile.
+  // How? Maybe create const loggedInUsername = window.localStorage.username
+  // then see if that's in the profiles:  const loggedInProfile = profiles.filter((profile) => profile.username == 'loggedInUsername');
+  const loggedInUsername = window.localStorage.username;
+  // const loggedInProfile = profiles.filter((profile) => profile.username == 'window.localStorage.username');
+  const loggedInProfile = profiles.filter((profile) => profile.username == loggedInUsername);
+  //console.log(loggedInUsername);
+ // console.log(loggedInProfile);
 
 
   const [current, cCurrent] = useState(undefined);
@@ -103,7 +112,25 @@ function TestDashboard(props) {
      //
      //
      //
+     
        };
+       //
+       //
+                         // This should  display just the logged in profile
+    function buildLoggedInProfile() {
+      return loggedInProfile.map((current) => {
+         return (
+           <>
+             <Profilecard id={current._id} 
+             firstName={current.firstName} userType={current.userType} lastName={current.lastName} email={current.email} bio={current.bio} linkedin={current.linkedin} github={current.github} admincomments={current.admincomments} portfolio={current.portfolio} hired={current.hired?"true":"false"} skills={current.skills} picture={current.picture} course={current.course} date={current.date} removeProfile={removeProfile} updateProfile={updateProfile} location = {current.location}></Profilecard>
+           </>
+         );
+       });
+   //
+   //
+   //
+   
+     };
 
     return (
 
@@ -111,7 +138,7 @@ function TestDashboard(props) {
         <Container className="contentContainer">
           <Row className="headerRow">
             <h5 className="header-title">Admin Dashboard</h5>
-            <h4>Logged in as {props.username}</h4>
+            <h4>Logged in as {loggedInUsername}</h4>
           </Row>
     
       <div style={{ display: "flex", justifyContent: "right", alignItems: "right" }}>
@@ -140,6 +167,11 @@ function TestDashboard(props) {
         <div className="row row-cols-1 row-cols-md-3 g-4">
           <h2>Showing employed profile cards</h2>
           {buildEmployedcards()}
+        </div>
+        <br />
+        <div className="row row-cols-1 row-cols-md-3 g-4">
+          <h2>Showing logged in profile </h2>
+          {buildLoggedInProfile()}
         </div>
      <Row className="bodyRow mx-auto text-center mt-2">
       <Col xs={6}>

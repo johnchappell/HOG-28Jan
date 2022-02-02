@@ -13,8 +13,11 @@ function Login(props) {
     .login(e.target.username.value,e.target.password.value)
     .then( (response) => {
       cDisabled(false);
-      console.log(response.data.token);
-      props.loggedIn(response.data.token, response.data.userType);
+    //  console.log(response.data.token);
+      props.loggedIn(response.data.token, response.data.userType,
+        // added 2 Feb
+        response.data.username
+        );
 
     })
     .catch((error) => {
