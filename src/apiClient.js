@@ -64,16 +64,16 @@ export class ApiClient {
     return this.authenticatedCall("get", url);
   }
 
-  addProfile(username, userType, firstName, lastName, bio, email, image, cv, location, isEmployed, employedInTech, employedOther, freelance, notEmployed, inEducation, saveForlater, portfolioLink) {
+  addProfile(username, userType, firstName, lastName, bio, email, image, cv, location, companyName, companyType, isRecruiting, currentVacancies, isEmployed, employedInTech, employedOther, freelance, notEmployed, inEducation, like, portfolio, github, linkedin, skills) {
    // console.log("Posting", firstName)
-    return this.authenticatedCall("post", url, { username, userType,  firstName, lastName, bio, email, image, cv, location, isEmployed, employedInTech, employedOther, freelance, notEmployed, inEducation, saveForlater, portfolioLink });
+    return this.authenticatedCall("post", url, { username, userType,  firstName, lastName, bio, email, image, cv, location, companyName, companyType, isRecruiting, currentVacancies, isEmployed, employedInTech, employedOther, freelance, notEmployed, inEducation, like, portfolio, github, linkedin, skills });
   }
 
   removeProfile(id) {
     return this.authenticatedCall("delete", `${url}${id}`);
   }
 
-  updateProfile(id, username, userType, firstName, lastName, bio, email, image, cv, location, isEmployed, employedInTech, employedOther, freelance, notEmployed, inEducation, saveForLater, portfolioLink) {
-    return this.authenticatedCall("put", `${url}${id}`, { username, userType, firstName, lastName, bio, email, image, cv, location, isEmployed, employedInTech, employedOther, freelance, notEmployed, inEducation, saveForLater });
+  updateProfile(id, username, userType, firstName, lastName, bio, email, location, portfolio, github) {
+    return this.authenticatedCall("put", `${url}${id}`, { username, userType, firstName, lastName, bio, email, location, portfolio, github});
   }
 }
