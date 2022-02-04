@@ -9,9 +9,11 @@ import Profilecard from "./Profilecard";
 import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Container } from "react-bootstrap";
-import NavbarCode from "./NavbarCode";
+
+// import NavbarCode from "./NavbarCode";
 import AddParticipant from "./AddParticipant";
-// import 'ParticipantDashboard.css';
+import './ParticipantDashboard.css';
+
 
 
 //mport Table from 'react-bootstrap/Table';
@@ -117,7 +119,24 @@ function ParticipantDashboard(props) {
          return (
            <>
              <ParticipantProfilecard id={current._id} 
-             firstName={current.firstName} userType={current.userType} lastName={current.lastName} email={current.email} bio={current.bio} linkedin={current.linkedin} github={current.github} admincomments={current.admincomments} portfolio={current.portfolio} hired={current.hired?"true":"false"} skills={current.skills} picture={current.image} course={current.course} date={current.date} removeProfile={removeProfile} updateProfile={updateProfile} location = {current.location}></ParticipantProfilecard>
+
+             firstName={current.firstName} 
+             userType={current.userType} 
+             lastName={current.lastName}
+              email={current.email} 
+              bio={current.bio} 
+              linkedin={current.linkedin} 
+              github={current.github} 
+              portfolio={current.portfolio} 
+              isEmployed={current.isEmployed?"true":"false"} 
+              skills={current.skills} 
+              picture={current.image} 
+              removeProfile={removeProfile} 
+              updateProfile={updateProfile} 
+              location = {current.location}>
+                  
+              </ParticipantProfilecard>
+
           
            </>
          );
@@ -131,27 +150,26 @@ function ParticipantDashboard(props) {
 
     return (
         <>
-        <NavbarCode logout={props.logout} updateProfile={updateProfile} show={show} 
-        // setShow={setShow}  
-        loggedInProfile={loggedInProfile}/>
 
-      <main>
-        <Container className="contentContainer">
+        {/* <NavbarCode logout={props.logout} updateProfile={updateProfile} show={show} 
+        // setShow={setShow}  
+        loggedInProfile={loggedInProfile}/> */}
+
+      <div className="main"><main>
+        <div className="contentContainer">
           <Row className="headerRow">
             <h3 className="header-title">Welcome to Participant Dashboard</h3>
-            <h4>Logged in as {loggedInUsername}</h4>
+            <h4>Logged in as {loggedInUsername} {props.firstName}</h4>
           </Row>
-    
-      {/* <div style={{ display: "flex", justifyContent: "right", alignItems: "right" }}>
-      <Button  onClick={props.logout}>
+          <div style={{ float: "right", marginRight: "60px"}}>
+      <Button className="logout-button" onClick={props.logout}>
           {" "}
           Logout{" "}
         </Button>
-      </div> */}
+      </div>
 
-        <br />
-        <div className="row row-cols-1 row-cols-md-3 g-4">
-            <h2>Logged in profile</h2>
+        <div className="participant-profile-card">
+
           {buildLoggedInProfile()}
         </div>
 
@@ -167,6 +185,7 @@ function ParticipantDashboard(props) {
           cCurrent(undefined);
         }}
         currentProfile={current}
+
         // logout={props.logout}
       />
       </div>
@@ -188,13 +207,19 @@ function ParticipantDashboard(props) {
         :<a className="buttonShowAdd2" onClick={() => setShow2(!show2)}>Find Participant</a> }
           <br />
           <div className="row row-cols-1 row-cols-md-3 g-4">
-              <h2>Showing 'employer' cards</h2>
+
+              <p>Showing 'employer' cards</p>
+
             {buildEmployercards()}
           </div>
         </Col>
         </Row>
-        </Container>
+
+        {/* </Container> */}
+        </div>
       </main>
+      </div>
+
 </>
   );
   

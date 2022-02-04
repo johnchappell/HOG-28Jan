@@ -43,9 +43,12 @@ function AddParticipant(props) {
   const[picture,cPicture]=useState('' || props.picture)
   const[skills,cSkills]=useState([])
   const skillOptions = [
-      { value: 'JS', label: 'JaveScript' },
-      { value: 'HTML', label: 'Html' },
-      { value: 'CSS', label: 'CSS' }
+
+      { value: ' Javascript ', label: 'JavaScript' },
+      { value: ' HTML ', label: 'Html' },
+      { value: ' CSS ', label: 'CSS' },
+      { value: ' React ', label: 'React'}
+
     ]
 
   const submitHandler = (e) => {
@@ -65,9 +68,15 @@ function AddParticipant(props) {
         e.target.location.value,
         e.target.portfolio.value,
         e.target.github.value,
+
+        e.target.linkedin.value,
+        e.target.isEmployed.checked,
+        skills.map( (item) => { return(item.value)}),
+
         // e.target.image.value,
         // e.target.cv.value,
-        // e.target.isEmployed.checked,
+
+
         // e.target.employedInTech.value,
         // e.target.employedOther.value,
         // e.target.freelance.value,
@@ -76,7 +85,7 @@ function AddParticipant(props) {
         // e.target.linkedin.value,
         // e.target.github.value,
         // e.target.portfolio.value,
-       // skills.map( (item) => { return(item.value)}),
+
 
       
       );
@@ -93,12 +102,17 @@ function AddParticipant(props) {
         e.target.portfolio.value,
         e.target.github.value,
 
+        e.target.linkedin.value,
+        e.target.isEmployed.checked,
+        skills.map( (item) => { return(item.value)}),
+
+
 
 
 
     //     e.target.image.value,
     //     e.target.cv.value,
-    //     e.target.isEmployed.checked,
+
     //     e.target.employedInTech.value,
     //     e.target.employedOther.value,
     //     e.target.freelance.value,
@@ -107,7 +121,7 @@ function AddParticipant(props) {
     //     e.target.linkedin.value,
     //     e.target.github.value,
     //     e.target.portfolio.value,
-    //     skills.map( (item) => { return(item.value)}),
+
         );
     }
     result
@@ -126,141 +140,11 @@ function AddParticipant(props) {
 
   return (
     <>
-    
-    {/* <div>
-        <Form onSubmit={(e) => submitHandler(e)} id="addForm">
-        <Row className="g-2">
-          <Col md>
-        <Form.Group>
-      <Form.Label >First Name:</Form.Label> <br />
-        <Form.Control
-          required
-          type="text"
-          defaultValue={props.currentProfile?.firstName || ""}
-          name="firstName"
-          disabled={disabled}
-          placeholder="Your first name here"
-        />
-        </Form.Group>
-        </Col>
-        <Col md>
-        <Form.Group>
-      <Form.Label >Last Name:</Form.Label> <br />
-        <Form.Control
-          required
-          type="text"
-          defaultValue={props.currentProfile?.lastName || ""}
-          name="lastName"
-          disabled={disabled}
-          placeholder="Your last name here"
-        />
-        </Form.Group>
-        </Col>
-        <Col md>
-        <Form.Group>
-        <Form.Label>Email </Form.Label><br />
-        <Form.Control
-          required
-          type="text"
-          defaultValue={props.currentProfile?.email || ""}
-          name="email"
-          disabled={disabled}
-          placeholder="Type your email here">
-        </Form.Control>
-        </Form.Group>
-        </Col>
-        </Row>
-        <Row>
-        <Form.Group>
-        <Form.Label>Bio</Form.Label>
-        <Form.Control
-          type="text"
-          defaultValue={props.currentProfile?.bio || ""}
-          name="bio"
-          disabled={disabled}>
-        </Form.Control>
-        </Form.Group>
-        </Row>
-        <Row>
-          <Col md>
-        <Form.Group>
-        <Form.Label>Linkedin</Form.Label>
-        <Form.Control
-          type="text"
-          defaultValue={props.currentProfile?.linkedin || ""}
-          name="linkedin"
-          disabled={disabled}>
-            </Form.Control>
-          </Form.Group>
-          </Col>
-          <Col md>
-        <Form.Group>
-        <Form.Label>Github</Form.Label>
-        <Form.Control
-          type="text"
-          defaultValue={props.currentProfile?.github || ""}
-          name="github"
-          disabled={disabled}>
-        </Form.Control>
-        </Form.Group>
-        </Col>
-        </Row>
-        <Row>
-        <Form.Group>
-        <Form.Label> Portfolio</Form.Label>
-        <Form.Control
-          type="text"
-          defaultValue={props.currentProfile?.portfolio || ""}
-          name="portfolio"
-          disabled={disabled}>
-        </Form.Control>
-        </Form.Group>
-        </Row>
-        <Row>
-        <Col md>
-        <Form.Group>
-        <Form.Label>Employed</Form.Label>
-        <Form.Check
-          type="switch"
-          defaultChecked={props.currentProfileForm?.isEmployed || ""}
-          name="hired"
-          disabled={disabled}/>  
-        </Form.Group>
-        </Col>
-        </Row>
-        <Form.Group>
-        
-        <Form.Label>Skills</Form.Label>
-        
-        
-        <Select
-          onChange={(e)=>{cSkills(e)}}
-          closeMenuOnSelect={false}
-          defaultValue={props.skills}
-          isMulti
-          options={skillOptions}
-          name="skills">
-          </Select>
-        
-        </Form.Group>
-        <Form.Group>
-        <Form.Label>Picture</Form.Label>
-        <Upload client={props.client} changeimage={cPicture}/>
-        </Form.Group>
 
-        <br/>
-        <Button size="sm"type="submit" disabled={disabled}>
-          {" "}
-          Submit{" "}
-        </Button>
-      </Form>
-      </div> */}
+    {props.currentProfile ? "" : ""}
+    <br />
     
-      {props.currentProfile ? "" : ""}
-      <br />
-      
-
-      <form onSubmit={(e) => submitHandler(e)} id="addForm">
+    <form onSubmit={(e) => submitHandler(e)} id="addForm">
       <br />
         <div className="add-group">
           <label htmlFor="username">Username:</label>
@@ -408,6 +292,46 @@ function AddParticipant(props) {
 
 <br />
 <div className="add-group">
+
+  <label htmlFor="linkedin">Linkedin:</label>
+
+<input
+  type="text"
+  defaultValue={props.currentProfile?.linkedin}
+  name="linkedin" id="linkedin"
+  disabled={disabled}
+/>
+</div>
+
+<br />
+<div className="add-group">
+  <label htmlFor="isEmployed">Employed:</label>
+
+<input
+  type="switch"
+  defaultValue={props.currentProfile?.isEmployed}
+  name="isEmployed" id="isEmployed"
+  disabled={disabled}
+/>
+</div>
+<br />
+<div className="add-group">
+  <label htmlFor="skills">Skills:</label>
+
+  <Select
+          className="findSelect" 
+          onChange={(e)=>{cSkills(e)}}
+          closeMenuOnSelect={false}
+          defaultValue={props.skills}
+          isMulti
+          options={skillOptions}
+          name="skills">
+          </Select>
+</div>
+
+
+{/* <div className="add-group">
+
   <label htmlFor="like">Like:</label>
 
 <input
@@ -418,7 +342,7 @@ function AddParticipant(props) {
 />
 </div>
 
-<br />
+<br /> */}
 
 {/* <div className="add-group">
   <label htmlFor="employedInTech">Employed in what tech role:</label>
@@ -432,7 +356,6 @@ function AddParticipant(props) {
 </div>
 
 <br />
-
 <div className="add-group">
   <label htmlFor="employedOther">Employed in another role:</label>
 
@@ -445,7 +368,6 @@ function AddParticipant(props) {
 </div>
 
 <br />
-
 <div className="add-group">
   <label htmlFor="freelance">Freelance:</label>
 
@@ -458,7 +380,6 @@ function AddParticipant(props) {
 </div>
 
 <br />
-
 <div className="add-group">
   <label htmlFor="notEmployed">Not employed:</label>
 
@@ -471,7 +392,6 @@ function AddParticipant(props) {
 </div>
 
 <br />
-
 <div className="add-group">
   <label htmlFor="inEducation">In education or training:</label>
 
@@ -487,10 +407,13 @@ function AddParticipant(props) {
           {" "}
           Submit{" "}
         </button>
-      </form>
+
+      </form>    
+
     </>
   );
 }
+
 
 export default AddParticipant;
 

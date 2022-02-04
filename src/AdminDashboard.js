@@ -8,6 +8,7 @@ import Profilecard from './Profilecard';
 import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Container } from "react-bootstrap";
+import './dashboard.css'
 
 
 //mport Table from 'react-bootstrap/Table';
@@ -66,6 +67,7 @@ function AdminDashboard(props) {
           Logout{" "}
         </Button>
       </div>
+ 
 
         <br />
         <div class="row row-cols-1 row-cols-md-3 g-4">

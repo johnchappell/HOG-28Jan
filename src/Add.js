@@ -50,12 +50,7 @@ function Add(props) {
         e.target.image.value,
         e.target.cv.value,
         e.target.isEmployed.value,
-        e.target.employedInTech.value,
-        e.target.employedOther.value,
-        e.target.freelance.value,
-        e.target.notEmployed.value,
-        e.target.inEducation.value,
-        e.target.like.value,
+
 
       );
     } else {
@@ -68,12 +63,7 @@ function Add(props) {
         e.target.email.value,
         e.target.image.value,
         e.target.isEmployed.value,
-        e.target.employedInTech.value,
-        e.target.employedOther.value,
-        e.target.freelance.value,
-        e.target.notEmployed.value,
-        e.target.inEducation.value,
-        e.target.like.value,
+
 
         );
     }
@@ -231,69 +221,6 @@ function Add(props) {
 </div>
 
 <br />
-
-<div className="add-group">
-  <label htmlFor="employedInTech">Employed in what tech role:</label>
-
-<input
-  type="text"
-  defaultValue={props.currentProfile?.employedInTech}
-  name="employedInTech" id="employedInTech"
-  disabled={disabled}
-/>
-</div>
-
-<br />
-
-<div className="add-group">
-  <label htmlFor="employedOther">Employed in another role:</label>
-
-<input
-  type="text"
-  defaultValue={props.currentProfile?.employedOther}
-  name="employedOther" id="employedOther"
-  disabled={disabled}
-/>
-</div>
-
-<br />
-
-<div className="add-group">
-  <label htmlFor="freelance">Freelance:</label>
-
-<input
-  type="text"
-  defaultValue={props.currentProfile?.freelance}
-  name="freelance" id="freelance"
-  disabled={disabled}
-/>
-</div>
-
-<br />
-
-<div className="add-group">
-  <label htmlFor="notEmployed">Not employed:</label>
-
-<input
-  type="text"
-  defaultValue={props.currentProfile?.notEmployed}
-  name="notEmployed" id="notEmployed"
-  disabled={disabled}
-/>
-</div>
-
-<br />
-
-<div className="add-group">
-  <label htmlFor="inEducation">In education or training:</label>
-
-<input
-  type="text"
-  defaultValue={props.currentProfile?.inEducation}
-  name="inEducation" id="inEducation"
-  disabled={disabled}
-/>
-</div>
         
         <button className="update" type="submit" disabled={disabled}>
           {" "}

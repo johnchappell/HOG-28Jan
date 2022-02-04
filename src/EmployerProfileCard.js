@@ -9,15 +9,14 @@ import { faGithub ,faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 
 
-function ParticipantProfilecard(props){
+function EmployerProfilecard(props){
     const [show,setShow]=useState(false);
     const[like,setLike] = useState(false);
 {/* console.log(Profilecard) */}
 
     return (
         <>
-
-            <Card id="main" className="participant-dashboard-profile-card"  style={{ width: '18rem'}}>
+            <Card id="main" className="employer-dashboard-profile-card"  style={{ width: '18rem'}}>
                 <Card.Body >
                 <Card.Img  className="mh-10 mw-10 cardImg hover-shadow"  src={props.picture} alt="" />
                 {/* <h5 
@@ -31,10 +30,6 @@ function ParticipantProfilecard(props){
                     <Card.Text>{props.email}</Card.Text>
                     <Card.Text>{props.bio}</Card.Text>
                     <Card.Text>{props.location}</Card.Text>
-                    <Card.Text>{props.cv}</Card.Text>
-                    <Card.Text>Employed: {props.isEmployed}</Card.Text>
-                    <Card.Text>Skills: 
-                        <br /> {props.skills}</Card.Text>
 
                     <Card.Link className="social-icons" href={"mailto:"+props.email}> <FontAwesomeIcon icon = {faEnvelope}></FontAwesomeIcon></Card.Link>
                     <Card.Link className="social-icons" target="_blank" href={props.github}><FontAwesomeIcon icon = {faGithub}></FontAwesomeIcon></Card.Link>
@@ -46,7 +41,6 @@ function ParticipantProfilecard(props){
                     <Button className="update-button" variant="success" size="sm" onClick={() => props.updateProfile(props.id)}> update</Button>
                     <Button variant="danger" size="sm" onClick={() => props.removeProfile(props.id)}> remove</Button>
                     </div>
-
                     
                     <br />
                 </Card.Body>
@@ -55,4 +49,4 @@ function ParticipantProfilecard(props){
     )
 }
 
-export default ParticipantProfilecard;
+export default EmployerProfilecard;

@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import './SApp'
  import Add from "./Add";
-// import Find from "./Find";
+import Find from "./Find";
 import Button from 'react-bootstrap/Button';
 import Profilecard from './Profilecard';
 import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Container } from "react-bootstrap";
+import './AdminDashboard.css';
 
 
 //mport Table from 'react-bootstrap/Table';
@@ -99,7 +100,7 @@ function TestDashboard(props) {
      //
        };
 
-                  // This should  display all profiles
+                  // This should  display all employed profiles
     function buildEmployedcards() {
         return employedProfiles.map((current) => {
            return (
@@ -148,31 +149,29 @@ function TestDashboard(props) {
         </Button>
       </div>
 
+
         <br />
         <div className="row row-cols-1 row-cols-md-3 g-4">
-            <h2>Showing 'employer' cards</h2>
-          {buildEmployercards()}
+            <p>Showing 'employer' cards</p>
+            {buildEmployercards()}
         </div>
         <br />
         <div className="row row-cols-1 row-cols-md-3 g-4">
-          <h2>Showing 'participant' cards</h2>
+          <p>Showing 'participant' cards</p>
           {buildParticipantcards()}
         </div>
         <br />
         <div className="row row-cols-1 row-cols-md-3 g-4">
-          <h2>Showing all cards</h2>
+          <p>Showing all cards</p>
           {buildProfilecards()}
         </div>
         <br />
         <div className="row row-cols-1 row-cols-md-3 g-4">
-          <h2>Showing employed profile cards</h2>
+          <p>Showing employed profile cards</p>
           {buildEmployedcards()}
         </div>
         <br />
-        <div className="row row-cols-1 row-cols-md-3 g-4">
-          <h2>Showing logged in profile </h2>
-          {buildLoggedInProfile()}
-        </div>
+
      <Row className="bodyRow mx-auto text-center mt-2">
       <Col xs={6}>
       { show?
@@ -193,11 +192,11 @@ function TestDashboard(props) {
       <Col xs={6}>
         { show2? 
           <>
-        {/* <Find
+        <Find
             client={props.client}
             querySearch = {querySearch}
             currentProfile={current}
-          /> */}
+          />
           <a className="see-less-btn" onClick={() => setShow2(!show2)}>See less</a>
           </>
         :<a className="buttonShowAdd2" onClick={() => setShow2(!show2)}>Find Participant</a> }

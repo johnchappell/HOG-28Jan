@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import login from "./login.css";
+import './Login.css'
+import Topbar from "./navbar/Topbar";
+
 function Login(props) {
   
   const [disabled, cDisabled] = useState(false);
@@ -28,6 +30,10 @@ function Login(props) {
   };
 
   return (
+    <>
+        <div className="login-navbar">
+      <Topbar />
+    </div>
     <div className="outer-container">
     <div className="login-container">
       <div className="login-div">
@@ -43,13 +49,17 @@ function Login(props) {
           <label htmlFor="password">Password:</label>
           <input type="password" name="password" id="password" disabled={disabled}/>
         </div>
+        <div className="login-button">
         <input className="login" type="submit" value="Login" disabled={disabled}/>
+        </div>
           
       </div>
       </form>
       </div>
       </div>
       </div>
+
+      </>
       
 
 

@@ -73,7 +73,9 @@ export class ApiClient {
     return this.authenticatedCall("delete", `${url}${id}`);
   }
 
-  updateProfile(id, username, userType, firstName, lastName, bio, email, location, portfolio, github) {
-    return this.authenticatedCall("put", `${url}${id}`, { username, userType, firstName, lastName, bio, email, location, portfolio, github});
+
+  updateProfile(id, username, userType, firstName, lastName, bio, email, location, portfolio, github, linkedin, isEmployed, skills ) {
+    return this.authenticatedCall("put", `${url}${id}`, { username, userType, firstName, lastName, bio, email, location, portfolio, github, linkedin, isEmployed, skills});
+
   }
 }

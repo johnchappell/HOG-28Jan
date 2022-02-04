@@ -1,26 +1,21 @@
 import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import './SApp'
-import './EmployerDashboard.css';
  import Add from "./Add";
+// import Find from "./Find";
 import Button from 'react-bootstrap/Button';
 import Profilecard from './Profilecard';
 import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Container } from "react-bootstrap";
-import EmployerFind from "./EmployerFind";
-import EmployerProfilecard from "./EmployerProfileCard";
 
 
 //mport Table from 'react-bootstrap/Table';
-function EmployerDashboard(props) {
+function SearchParticipants(props) {
   const [profiles, cProfiles] = useState([]);
-  
   //console.log(window.localStorage.userType, window.localStorage.token, window.localStorage.username);
   // filter out by employer, participant and isEmployed
-  const employerProfiles = profiles.filter((profile) => profile.userType == 'employer');
   const participantProfiles = profiles.filter((profile) => profile.userType == 'participant');
-  // const employedProfiles = profiles.filter((profile) => profile.isEmployed == true);
 
   // I want to display current logged in user so they can edit their profile.
   // How? Maybe create const loggedInUsername = window.localStorage.username
@@ -49,8 +44,8 @@ function EmployerDashboard(props) {
     cCurrent(e[0])
    }
   };
-  const querySearch2 = (searchEmployerParams) => {
-    props.client.queryResult2(searchEmployerParams).then((response) => cProfiles(response.data))
+  const querySearch = (searchParams) => {
+    props.client.queryResult(searchParams).then((response) => cProfiles(response.data))
   }
 
   useEffect(() => {
@@ -58,7 +53,8 @@ function EmployerDashboard(props) {
   }, []);
   
 
-  
+
+
     // This should only display the 'participant' profiles
     function buildParticipantcards() {
         return participantProfiles.map((current) => {
@@ -73,104 +69,29 @@ function EmployerDashboard(props) {
      //
      //
        };
-           // This should  display all profiles
-    // function buildProfilecards() {
-    //     return profiles.map((current) => {
-    //        return (
-    //          <>
-    //            <Profilecard id={current._id} 
-    //            firstName={current.firstName} userType={current.userType} lastName={current.lastName} email={current.email} bio={current.bio} linkedin={current.linkedin} github={current.github} admincomments={current.admincomments} portfolio={current.portfolio} hired={current.hired?"true":"false"} skills={current.skills} picture={current.picture} course={current.course} date={current.date} removeProfile={removeProfile} updateProfile={updateProfile} location = {current.location}></Profilecard>
-    //          </>
-    //        );
-    //      });
-     //
-     //
-     //
-      //  };
 
-                  // This should  display all profiles
-    // function buildEmployedcards() {
-    //     return employedProfiles.map((current) => {
-    //        return (
-    //          <>
-    //            <Profilecard id={current._id} 
-    //            firstName={current.firstName} userType={current.userType} lastName={current.lastName} email={current.email} bio={current.bio} linkedin={current.linkedin} github={current.github} admincomments={current.admincomments} portfolio={current.portfolio} hired={current.hired?"true":"false"} skills={current.skills} picture={current.picture} course={current.course} date={current.date} removeProfile={removeProfile} updateProfile={updateProfile} location = {current.location}></Profilecard>
-    //          </>
-    //        );
-    //      });
-     //
-     //
-     //
-     
-      //  };
-       //
-       //
-                         // This should  display just the logged in profile
-    function buildLoggedInProfile() {
-      return loggedInProfile.map((current) => {
-         return (
-           <>
-             <EmployerProfilecard id={current._id} 
-             firstName={current.firstName} 
-             userType={current.userType} 
-             lastName={current.lastName}
-              email={current.email} 
-              bio={current.bio} 
-              linkedin={current.linkedin} 
-              github={current.github} 
-              portfolio={current.portfolio} 
-              isEmployed={current.isEmployed?"true":"false"} 
-              skills={current.skills} 
-              picture={current.picture} 
-              removeProfile={removeProfile} 
-              updateProfile={updateProfile} 
-              location = {current.location}>
-
-              </EmployerProfilecard>
-           </>
-         );
-       });
-   //
-   //
-   //
-   
-     };
 
     return (
 
       <main>
         <Container className="contentContainer">
           <Row className="headerRow">
-            <h5 className="header-title">Employer Dashboard</h5>
+            <h5 className="header-title">Admin Dashboard</h5>
             <h4>Logged in as {loggedInUsername}</h4>
           </Row>
     
       <div style={{ display: "flex", justifyContent: "right", alignItems: "right" }}>
-      <Button  className="employer-logout-button" onClick={props.logout}>
+      <Button  onClick={props.logout}>
           {" "}
           Logout{" "}
         </Button>
       </div>
-      <div className="participant-profile-card">
-          {buildLoggedInProfile()}
-        </div>
 
-
-        <br />
-
-        <br />
         <div className="row row-cols-1 row-cols-md-3 g-4">
-          <p>Showing 'participant' cards</p>
+          <h2>Showing 'participant' cards</h2>
           {buildParticipantcards()}
         </div>
-        <br />
-        {/* <br />
-        <div className="row row-cols-1 row-cols-md-3 g-4">
-          <h2>Showing employed profile cards</h2>
-          {buildEmployedcards()}
-        </div>
-        <br /> */}
-
+       
      <Row className="bodyRow mx-auto text-center mt-2">
       <Col xs={6}>
       { show?
@@ -191,11 +112,11 @@ function EmployerDashboard(props) {
       <Col xs={6}>
         { show2? 
           <>
-        <EmployerFind
+        {/* <Find
             client={props.client}
-            querySearch2 = {querySearch2}
+            querySearch = {querySearch}
             currentProfile={current}
-          />
+          /> */}
           <a className="see-less-btn" onClick={() => setShow2(!show2)}>See less</a>
           </>
         :<a className="buttonShowAdd2" onClick={() => setShow2(!show2)}>Find Participant</a> }
@@ -203,9 +124,8 @@ function EmployerDashboard(props) {
         </Row>
         </Container>
       </main>
-
+    
   );
   
 }
-    
-export default EmployerDashboard;
+export default SearchParticipants;
