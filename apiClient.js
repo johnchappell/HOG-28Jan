@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = "http://localhost:3001/";
+const url = "http://localhost:3003/";
 
 export class ApiClient {
   constructor(tokenProvider, newUserType, logoutHandler){
@@ -41,36 +41,31 @@ export class ApiClient {
     return this.apiCall("post",url + "auth/",{username: username, password:password});
   }
 
-  // getEvents() {
-  //   return this.authenticatedCall("get", url);
-  // }
-
-  // addEvent(name, location, info, eventDate) {
-  //   console.log("Posting", name)
-  //   return this.authenticatedCall("post", url, { name, location, info, eventDate });
-  // }
-
-  // removeEvent(id) {
-  //   return this.authenticatedCall("delete", `${url}${id}`);
-  // }
-
-  // updateEvent(id, name, location, info, eventDate) {
-  //   return this.authenticatedCall("put", `${url}${id}`, { name, location, info, eventDate });
-  // }
   getProfiles() {
     return this.authenticatedCall("get", url);
   }
 
+  // Admin Add 
   addProfile(username, userType, firstName, lastName, bio, email, image, cv, location, isEmployed, employedInTech, employedOther, freelance, notEmployed, inEducation, saveForlater) {
     console.log("Posting", firstName)
     return this.authenticatedCall("post", url, { username, userType,  firstName, lastName, bio, email, image, cv, location, isEmployed, employedInTech, employedOther, freelance, notEmployed, inEducation, saveForlater });
   }
-
+  // Admin remove
   removeProfile(id) {
     return this.authenticatedCall("delete", `${url}${id}`);
   }
-
+  // Admin update
   updateProfile(id, username, userType, firstName, lastName, bio, email, image, cv, location, isEmployed, employedInTech, employedOther, freelance, notEmployed, inEducation, saveForLater) {
     return this.authenticatedCall("put", `${url}${id}`, { username, userType, firstName, lastName, bio, email, image, cv, location, isEmployed, employedInTech, employedOther, freelance, notEmployed, inEducation });
+  }
+
+  //Admin Find
+  queryResult(searchParams){
+    return this.authenticatedCall("post", `${url}`, searchParams)
+  }
+
+  //Employer Find
+   queryResult2(searchEmployerParams){
+    return this.authenticatedCall("post", `${url}tda/employersearch`, searchEmployerParams)
   }
 }
