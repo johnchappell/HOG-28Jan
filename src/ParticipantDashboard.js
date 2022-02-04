@@ -9,9 +9,11 @@ import Profilecard from "./Profilecard";
 import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Container } from "react-bootstrap";
+
 // import NavbarCode from "./NavbarCode";
 import AddParticipant from "./AddParticipant";
 import './ParticipantDashboard.css';
+
 
 
 //mport Table from 'react-bootstrap/Table';
@@ -117,6 +119,7 @@ function ParticipantDashboard(props) {
          return (
            <>
              <ParticipantProfilecard id={current._id} 
+
              firstName={current.firstName} 
              userType={current.userType} 
              lastName={current.lastName}
@@ -133,6 +136,7 @@ function ParticipantDashboard(props) {
               location = {current.location}>
                   
               </ParticipantProfilecard>
+
           
            </>
          );
@@ -146,6 +150,7 @@ function ParticipantDashboard(props) {
 
     return (
         <>
+
         {/* <NavbarCode logout={props.logout} updateProfile={updateProfile} show={show} 
         // setShow={setShow}  
         loggedInProfile={loggedInProfile}/> */}
@@ -164,6 +169,7 @@ function ParticipantDashboard(props) {
       </div>
 
         <div className="participant-profile-card">
+
           {buildLoggedInProfile()}
         </div>
 
@@ -179,7 +185,7 @@ function ParticipantDashboard(props) {
           cCurrent(undefined);
         }}
         currentProfile={current}
-        
+
         // logout={props.logout}
       />
       </div>
@@ -201,15 +207,19 @@ function ParticipantDashboard(props) {
         :<a className="buttonShowAdd2" onClick={() => setShow2(!show2)}>Find Participant</a> }
           <br />
           <div className="row row-cols-1 row-cols-md-3 g-4">
+
               <p>Showing 'employer' cards</p>
+
             {buildEmployercards()}
           </div>
         </Col>
         </Row>
+
         {/* </Container> */}
         </div>
       </main>
       </div>
+
 </>
   );
   

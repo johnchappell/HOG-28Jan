@@ -51,6 +51,7 @@ function Add(props) {
         e.target.cv.value,
         e.target.isEmployed.value,
 
+
       );
     } else {
       result = props.client.addProfile( 
@@ -62,6 +63,7 @@ function Add(props) {
         e.target.email.value,
         e.target.image.value,
         e.target.isEmployed.value,
+
 
         );
     }

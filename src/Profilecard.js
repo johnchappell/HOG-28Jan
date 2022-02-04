@@ -18,6 +18,7 @@ function Profilecard(props){
         <>
             <Card className="profile-card"  style={{ width: '14rem'}} >
                 <Card.Body >
+
                 <Card.Img  className="mh-10 mw-10 cardImg"  src={props.picture} alt="" />
                 {/* <h5 
                 onClick={()=>setLike((prevLike) => !prevLike)}>  {like ? "Saved" : "Save?"}</h5> */}
@@ -25,6 +26,7 @@ function Profilecard(props){
                     <div className="usertype-admindashboard">
                         <Card.Text>{props.userType}</Card.Text> </div>
                         <br />
+
                     <Card.Text>{props.firstName} {props.lastName}</Card.Text>
                     <Card.Text>{props.bio}</Card.Text>
                     <Card.Text>{props.email}</Card.Text>

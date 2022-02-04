@@ -16,6 +16,7 @@ function ParticipantProfilecard(props){
 
     return (
         <>
+
             <Card id="main" className="participant-dashboard-profile-card"  style={{ width: '18rem'}}>
                 <Card.Body >
                 <Card.Img  className="mh-10 mw-10 cardImg hover-shadow"  src={props.picture} alt="" />
@@ -45,6 +46,7 @@ function ParticipantProfilecard(props){
                     <Button className="update-button" variant="success" size="sm" onClick={() => props.updateProfile(props.id)}> update</Button>
                     <Button variant="danger" size="sm" onClick={() => props.removeProfile(props.id)}> remove</Button>
                     </div>
+
                     
                     <br />
                 </Card.Body>
