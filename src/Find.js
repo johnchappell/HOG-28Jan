@@ -29,57 +29,19 @@ function Find(props) {
     return (
     <>
     <Container className="mx-auto formContainer">
-        <h5 className="findHeader">Searching for...</h5>
         <br />
         <Form className="form2" onSubmit={(e) => submitHandler(e)} id="findForm">
         <Form.Group>
-        <Form.Label>First name:</Form.Label>
+        <Form.Label>Search:</Form.Label>
         <Form.Control
             type="text"
             defaultValue=
             {props.currentProfileForm?.sFirstname}
             name="sFirstname"
             disabled={disabled}
-            placeholder="Participant's first name">
+            placeholder="first name, last name, email, location...">
         </Form.Control>
         </Form.Group>
-        <Form.Group>
-        <Form.Label>Last name:</Form.Label>
-        <Form.Control
-            type="text"
-            defaultValue=
-            {props.currentProfileForm?.sLastname}
-            name="sLastname"
-            disabled={disabled}
-            placeholder="Participant's last name">
-        </Form.Control>
-        </Form.Group>
-        <Form.Group>
-        <Form.Label>Email:</Form.Label>
-        <Form.Control
-            type="text"
-            defaultValue=
-            {props.currentProfileForm?.sEmail}
-            name="sEmail"
-            disabled={disabled}
-            placeholder="Participant Email">
-        </Form.Control>
-        </Form.Group>
-
-        <Form.Group>
-        <Form.Label>Location:</Form.Label>
-        <Form.Control
-            type="text"
-            defaultValue=
-            {props.currentProfileForm?.sLocation}
-            name="sLocation"
-            disabled={disabled}
-            placeholder="Participant Location">
-        </Form.Control>
-        </Form.Group>
-
-
-
         <Form.Group className="findSelectForm" >
         <Form.Label>Skills</Form.Label>
         <Select

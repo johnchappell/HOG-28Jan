@@ -53,8 +53,32 @@ main {
   border-radius: 5px;
   padding: 3px;
   color: #fff;
+  cursor: pointer;
+  float: right;
 }
 .see-less-btn:hover {
   color: #fff;
   background-color: rgb(233, 152, 2);
+}
+
+.logout-button {
+  background-color: orange;
+  color: #fff;
+  border: none;
+}
+.logout-button:hover {
+  background-color: orangered;
+}
+
+.search-button {
+  text-decoration: none;
+  background-color: orange;
+  border-radius: 3px;
+  padding: 6px;
+  color: #fff;
+}
+
+.search-button:hover {
+  color: #fff;
+  cursor: pointer;
 }
