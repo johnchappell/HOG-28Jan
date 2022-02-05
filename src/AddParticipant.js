@@ -43,10 +43,12 @@ function AddParticipant(props) {
   const[picture,cPicture]=useState('' || props.picture)
   const[skills,cSkills]=useState([])
   const skillOptions = [
+
       { value: ' Javascript ', label: 'JavaScript' },
       { value: ' HTML ', label: 'Html' },
       { value: ' CSS ', label: 'CSS' },
       { value: ' React ', label: 'React'}
+
     ]
 
   const submitHandler = (e) => {
@@ -66,12 +68,15 @@ function AddParticipant(props) {
         e.target.location.value,
         e.target.portfolio.value,
         e.target.github.value,
+
         e.target.linkedin.value,
         e.target.isEmployed.checked,
         skills.map( (item) => { return(item.value)}),
 
         // e.target.image.value,
         // e.target.cv.value,
+
+
         // e.target.employedInTech.value,
         // e.target.employedOther.value,
         // e.target.freelance.value,
@@ -80,6 +85,7 @@ function AddParticipant(props) {
         // e.target.linkedin.value,
         // e.target.github.value,
         // e.target.portfolio.value,
+
 
       
       );
@@ -95,6 +101,7 @@ function AddParticipant(props) {
         e.target.location.value,
         e.target.portfolio.value,
         e.target.github.value,
+
         e.target.linkedin.value,
         e.target.isEmployed.checked,
         skills.map( (item) => { return(item.value)}),
@@ -102,8 +109,10 @@ function AddParticipant(props) {
 
 
 
+
     //     e.target.image.value,
     //     e.target.cv.value,
+
     //     e.target.employedInTech.value,
     //     e.target.employedOther.value,
     //     e.target.freelance.value,
@@ -112,6 +121,7 @@ function AddParticipant(props) {
     //     e.target.linkedin.value,
     //     e.target.github.value,
     //     e.target.portfolio.value,
+
         );
     }
     result
@@ -130,6 +140,7 @@ function AddParticipant(props) {
 
   return (
     <>
+
     {props.currentProfile ? "" : ""}
     <br />
     
@@ -214,8 +225,10 @@ function AddParticipant(props) {
         </div>
 
         {/* <br />
+
 <div className="add-group">
   <label htmlFor="image">Photo:</label>
+
 <input
   type="text"
   defaultValue={props.currentProfile?.image}
@@ -225,8 +238,10 @@ function AddParticipant(props) {
 </div> */}
         
 {/* <br />
+
 <div className="add-group">
   <label htmlFor="cv">CV:</label>
+
 <input
   type="text"
   defaultValue={props.currentProfile?.cv}
@@ -277,6 +292,7 @@ function AddParticipant(props) {
 
 <br />
 <div className="add-group">
+
   <label htmlFor="linkedin">Linkedin:</label>
 
 <input
@@ -315,6 +331,7 @@ function AddParticipant(props) {
 
 
 {/* <div className="add-group">
+
   <label htmlFor="like">Like:</label>
 
 <input
@@ -329,6 +346,7 @@ function AddParticipant(props) {
 
 {/* <div className="add-group">
   <label htmlFor="employedInTech">Employed in what tech role:</label>
+
 <input
   type="text"
   defaultValue={props.currentProfile?.employedInTech}
@@ -336,9 +354,11 @@ function AddParticipant(props) {
   disabled={disabled}
 />
 </div>
+
 <br />
 <div className="add-group">
   <label htmlFor="employedOther">Employed in another role:</label>
+
 <input
   type="text"
   defaultValue={props.currentProfile?.employedOther}
@@ -346,9 +366,11 @@ function AddParticipant(props) {
   disabled={disabled}
 />
 </div>
+
 <br />
 <div className="add-group">
   <label htmlFor="freelance">Freelance:</label>
+
 <input
   type="text"
   defaultValue={props.currentProfile?.freelance}
@@ -356,9 +378,11 @@ function AddParticipant(props) {
   disabled={disabled}
 />
 </div>
+
 <br />
 <div className="add-group">
   <label htmlFor="notEmployed">Not employed:</label>
+
 <input
   type="text"
   defaultValue={props.currentProfile?.notEmployed}
@@ -366,9 +390,11 @@ function AddParticipant(props) {
   disabled={disabled}
 />
 </div>
+
 <br />
 <div className="add-group">
   <label htmlFor="inEducation">In education or training:</label>
+
 <input
   type="text"
   defaultValue={props.currentProfile?.inEducation}
@@ -381,12 +407,13 @@ function AddParticipant(props) {
           {" "}
           Submit{" "}
         </button>
-      </form>    
-      
 
-     
+      </form>    
+
     </>
   );
 }
 
+
 export default AddParticipant;
+
