@@ -4,12 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './EmployerDashboard.css';
  import Add from "./Add";
 import Button from 'react-bootstrap/Button';
-import Profilecard from './Profilecard';
+// import Profilecard from './Profilecard';
 import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import EmployerFind from "./EmployerFind";
 import EmployerProfilecard from "./EmployerProfileCard";
+import ParticipantCardforemployer from "./ParticipantCardsforemployer";
 
 
 //mport Table from 'react-bootstrap/Table';
@@ -64,8 +65,21 @@ function EmployerDashboard(props) {
         return participantProfiles.map((current) => {
            return (
              <>
-               <Profilecard id={current._id} 
-               firstName={current.firstName} userType={current.userType} lastName={current.lastName} email={current.email} bio={current.bio} linkedin={current.linkedin} github={current.github} admincomments={current.admincomments} portfolio={current.portfolio} hired={current.hired?"true":"false"} skills={current.skills} picture={current.picture} course={current.course} date={current.date} removeProfile={removeProfile} updateProfile={updateProfile} location = {current.location}></Profilecard>
+               <ParticipantCardforemployer id={current._id} 
+               firstName={current.firstName} 
+               userType={current.userType} 
+               lastName={current.lastName} 
+               email={current.email} 
+               bio={current.bio} 
+               linkedin={current.linkedin} 
+               github={current.github} 
+               portfolio={current.portfolio} 
+               isEmployed={current.isEmployed?"true":"false"} 
+               skills={current.skills} 
+               picture={current.picture} 
+               location = {current.location}>
+
+               </ParticipantCardforemployer>
              </>
            );
          });
@@ -119,8 +133,6 @@ function EmployerDashboard(props) {
               linkedin={current.linkedin} 
               github={current.github} 
               portfolio={current.portfolio} 
-              isEmployed={current.isEmployed?"true":"false"} 
-              skills={current.skills} 
               picture={current.picture} 
               removeProfile={removeProfile} 
               updateProfile={updateProfile} 
@@ -146,7 +158,7 @@ function EmployerDashboard(props) {
           </Row>
     
       <div style={{ display: "flex", justifyContent: "right", alignItems: "right" }}>
-      <Button  className="employer-logout-button" onClick={props.logout}>
+      <Button className="logout-button" onClick={props.logout}>
           {" "}
           Logout{" "}
         </Button>

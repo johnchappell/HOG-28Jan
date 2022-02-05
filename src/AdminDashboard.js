@@ -86,7 +86,9 @@ function AdminDashboard(props) {
         currentProfile={current}
         logout={props.logout}
       /> 
+      <div style={{ float: "right"}}>
       <a class="see-less-btn" onClick={() => setShow(!show)}>See less</a>
+      </div>
       </>
       : <a class="buttonShowAdd2" onClick={() => setShow(!show)}>Add post</a> }
       </Col>

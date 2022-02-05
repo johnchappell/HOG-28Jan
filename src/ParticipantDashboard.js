@@ -12,7 +12,8 @@ import { Container } from "react-bootstrap";
 // import NavbarCode from "./NavbarCode";
 import AddParticipant from "./AddParticipant";
 import './ParticipantDashboard.css';
-
+import EmployerProfileCard from './EmployerProfileCard'
+import EmployerCardforparticipant from "./EmployerCardforparticipant";
 
 //mport Table from 'react-bootstrap/Table';
 function ParticipantDashboard(props) {
@@ -65,8 +66,26 @@ function ParticipantDashboard(props) {
    return employerProfiles.map((current) => {
       return (
         <>
-          <Profilecard id={current._id} 
-          firstName={current.firstName} userType={current.userType} lastName={current.lastName} email={current.email} bio={current.bio} linkedin={current.linkedin} github={current.github} admincomments={current.admincomments} portfolio={current.portfolio} hired={current.hired?"true":"false"} skills={current.skills} picture={current.picture} course={current.course} date={current.date} removeProfile={removeProfile} updateProfile={updateProfile} location = {current.location}></Profilecard>
+          <EmployerCardforparticipant id={current._id} 
+          firstName={current.firstName} 
+          userType={current.userType} 
+          lastName={current.lastName} 
+          email={current.email} 
+          bio={current.bio}
+           linkedin={current.linkedin}
+            github={current.github} 
+            admincomments={current.admincomments} 
+            portfolio={current.portfolio} 
+            isEmployed={current.isEmployed?"true":"false"} 
+            skills={current.skills} 
+            picture={current.picture} 
+            course={current.course} 
+            date={current.date} 
+            removeProfile={removeProfile} 
+            updateProfile={updateProfile} 
+            location = {current.location}>
+
+            </EmployerCardforparticipant>
         </>
       );
     });
@@ -189,16 +208,16 @@ function ParticipantDashboard(props) {
       {/* onClick={()=> { func1(); func2();}} */}
       </Col>
       <Col xs={6}>
-        { show2? 
+        {/* { show2? 
           <>
-        {/* <Find
+        <Find
             client={props.client}
             querySearch = {querySearch}
             currentProfile={current}
-          /> */}
+          />
           <a className="see-less-btn" onClick={() => setShow2(!show2)}>See less</a>
           </>
-        :<a className="buttonShowAdd2" onClick={() => setShow2(!show2)}>Find Participant</a> }
+        :<a className="buttonShowAdd2" onClick={() => setShow2(!show2)}>Find Participant</a> } */}
           <br />
           <div className="row row-cols-1 row-cols-md-3 g-4">
               <p>Showing 'employer' cards</p>
